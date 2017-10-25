@@ -11,7 +11,7 @@ def home(request):
               <p>Les crêpes bretonnes ça tue des mouettes en plein vol !</p>"""
     return HttpResponse(text)
 
-def view_article(request, id_article):
+def viewArticle(request, id_article):
     """ 
     Vue qui affiche un article selon son identifiant (ou ID, ici un numéro)
     Son ID est le second paramètre de la fonction (pour rappel, le premier
@@ -21,7 +21,7 @@ def view_article(request, id_article):
         "Vous avez demandé l'article #{0} !".format(id_article)    
     )
 
-def list_articles(request, year, month):
+def listArticles(request, year, month):
     """
     Vue qui affiche un article selon le mois et l'annee de publication
     Apres la requête elle prend l'année et le mois en parametres 
@@ -32,7 +32,7 @@ def list_articles(request, year, month):
         " l'année {annee}".format(mois=month, annee=year)
     )
 
-def date_actuelle(request):
+def dateActuelle(request):
     """
     Méthode qui renvoie le template qui affiche l'heure en utilisant la 
     méthode render 
@@ -46,3 +46,16 @@ def additionne(request, nombre1 , nombre2 ):
     """
     total = int(nombre1) + int(nombre2);
     return render( request, 'blog/addition.html', locals())
+
+def arcEnCiel(request):
+    """
+    On affiche l'arc en ciel en utilisant les tags dans le template
+    """
+    colors= {'FF0000':'rouge', 
+            'ED7F10':'orange', 
+            'FFFF00':'jaune', 
+            '00FF00':'vert', 
+            '0000FF':'bleu', 
+            '4B0082':'indigo', 
+            '660099':'violet'}
+    return render(request, 'blog/rainbow.html', locals()) 

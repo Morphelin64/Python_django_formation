@@ -1,0 +1,8 @@
+<p> Voici les couleurs de l'arc-en-ciel 
+    <i>(test de la boucle for dans le template avec les tags)</i> :
+</p>
+<ul>
+    {% for hexa, colorName in colors.items %}
+    <li style="color:#{{ hexa }}">{{ colorName }}</li>
+    {% endfor %}
+</ul>
